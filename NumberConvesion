@@ -1,0 +1,225 @@
+package Mobiuso;
+
+import java.util.Scanner;
+
+
+
+class NumberConveter
+{
+	public static String convertDecimalToBinary(int number)
+	{
+		
+		int num=number;
+		 String str="";
+		 while(num>0)
+			{
+				int remainder=num%2;
+				num=num/2;
+				str=remainder+str;
+			}
+		return str;
+		
+	}
+	
+	
+	public static String convertDecimalToOctal(int number)
+	{
+		
+		 int num=number;
+		 
+		String Str="";
+		while(num>0)
+		{
+			int remainder=num%8;
+			num=num/8;
+			Str=remainder+Str;
+		}
+		return Str;
+		
+	}
+	
+	
+	public static String convertDecimalToHexadecimal(int number)
+	{
+		int num=number;
+		char[] array= {'0','1','2','3','4','5','6','7','8','9','A','B','C','D','E','F'};
+		String Str="";
+		while(num!=0)
+		{
+			int remainder=num%16;
+			Str=array[remainder]+Str;
+			num=num/16;
+		}
+		return Str;
+	}
+	
+	public static int convertBinaryToDecimal(String number)
+	{
+	
+		char [] in=number.toCharArray();
+		int index=0,decimalNumber=0;
+		int I=0;
+		for(int i=in.length-1;i>=0;i--)
+		{
+			if(in[i]=='0') 
+			{
+				index=0;
+			}
+			else if(in[i]=='1')
+			{
+				index=1;
+			}
+			else 
+			{
+				System.out.println("Please enter the correct number");	 
+			}
+			decimalNumber=(int) (decimalNumber+index*(Math.pow(2, I++)));
+			
+		}
+		 
+		return decimalNumber;
+		
+	}
+	
+	public static int convertOctalToDecimal(int number)
+	{
+		int num =number;
+		int index=0;
+		int decimalNumber=0;
+		
+		while(num>0)
+		{
+			
+			int remainder=num%10;
+			num=num/10;
+			decimalNumber=(int) (decimalNumber+remainder*(Math.pow(8, index++)));
+			
+		}
+		return decimalNumber;
+		
+	}
+	
+	public static int convertHexadecimalToDecimal(String number)
+	{
+		char [] ch= {'0','1','2','3','4','5','6','7','8','9','A','B','C','D','E','F'};
+		char [] in=number.toCharArray();
+		int index=0,i=0,count=0,decimalNumber=0;
+		
+		
+		for(int k=in.length-1;k>=0;k--)
+		{
+			count=0;
+			
+			for(int l=0;l<ch.length;l++)
+			{
+				if(in[k]!=ch[l])
+				{
+					count++;
+				}
+				else
+				{
+					index=count;
+				}
+				if(count>15)
+				{
+					System.out.println("please enter the correct number");
+					break;
+				}
+			}
+			
+			decimalNumber=(int) (decimalNumber+index*(Math.pow(16, i++)));			
+		}
+		return decimalNumber;
+		
+	}
+
+	
+	
+}
+public class NumberCoverterClient
+{
+	
+	public void getChoiceFromUser()
+	{
+		System.out.println("****Choices****");
+		System.out.println("1.Decimal to Binary \n2.Decimal to Octal \n3.Decimal to Hexadecimal  \n4.Binary to Decimal \n5.Octal to Decimal \n6.Hexadecimal to Decimal");
+		Scanner obj1=new Scanner (System.in);
+		Scanner obj=new Scanner (System.in);
+		System.out.println("\nPlease select your choice");
+		int choice=obj.nextInt();
+		
+		int numberToBeConverted;
+		String numberToConverted;
+		switch(choice)
+		{
+		case 1:
+			System.out.println("Enter the number to be converted");
+			numberToBeConverted=obj.nextInt();
+			System.out.println("After converting the number from Decimal to Bianry is");
+			System.out.println(NumberConveter.convertDecimalToBinary(numberToBeConverted));
+			break;
+			
+		case 2:
+			System.out.println("Enter the number to be converted");
+			numberToBeConverted=obj.nextInt();
+			System.out.println("After converting the number from Decimal to Octal is");
+			System.out.println(NumberConveter.convertDecimalToOctal(numberToBeConverted));
+			break;
+			
+		case 3:
+			System.out.println("Enter the number to be converted");
+			numberToBeConverted=obj.nextInt();
+			System.out.println("After converting the number from Decimal to Hexadecimal is");
+			System.out.println(NumberConveter.convertDecimalToHexadecimal(numberToBeConverted));
+			break;
+			
+		case 4:
+			System.out.println("Enter the number to be converted");
+			numberToConverted=obj1.nextLine();
+			System.out.println("After converting the number from Bianry to Decimal is");
+			System.out.println(NumberConveter.convertBinaryToDecimal(numberToConverted));
+			break;
+			
+		case 5:
+			System.out.println("Enter the number to be converted");
+			numberToBeConverted=obj.nextInt();
+			System.out.println("After converting the number from Octal to decimal is");
+			System.out.println(NumberConveter.convertOctalToDecimal(numberToBeConverted));
+			break;
+			
+		case 6:
+			System.out.println("Enter the number to be converted");
+			numberToConverted=obj.next();
+			System.out.println("After converting the number from Hexadecimal to Decimal is");
+			System.out.println(NumberConveter.convertHexadecimalToDecimal(numberToConverted));
+			break;
+			
+		
+			
+		 default :
+		 {
+			System.out.println("Please enter the the correct choice");
+			
+		 }
+		 
+		}
+	}
+	
+
+	public static void main(String[] args) 
+	{
+		
+		NumberCoverterClient numberconverter=new NumberCoverterClient();
+		
+		Scanner scan=new Scanner(System.in);
+		char ch;
+		do 
+		{
+			numberconverter.getChoiceFromUser();
+			System.out.println("\nDo you want to continue then press 'y' ");
+			ch=scan.next().charAt(0);
+		}while(ch=='y');
+	
+	}
+
+}
