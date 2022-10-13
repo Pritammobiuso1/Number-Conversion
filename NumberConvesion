@@ -6,10 +6,10 @@ import java.util.Scanner;
 
 class NumberConveter
 {
-	public static String convertDecimalToBinary(int number)
+	public static String convertDecimalToBinary(int decimalNumber)
 	{
 		
-		int num=number;
+		int num=decimalNumber;
 		 String str="";
 		 while(num>0)
 			{
@@ -155,7 +155,7 @@ public class NumberCoverterClient
 		case 1:
 			System.out.println("Enter the number to be converted");
 			numberToBeConverted=obj.nextInt();
-			System.out.println("After converting the number from Decimal to Bianry is");
+			System.out.println("After converting the number from Decimal to Binary is");
 			System.out.println(NumberConveter.convertDecimalToBinary(numberToBeConverted));
 			break;
 			
@@ -176,7 +176,7 @@ public class NumberCoverterClient
 		case 4:
 			System.out.println("Enter the number to be converted");
 			numberToConverted=obj1.nextLine();
-			System.out.println("After converting the number from Bianry to Decimal is");
+			System.out.println("After converting the number from Binary to Decimal is");
 			System.out.println(NumberConveter.convertBinaryToDecimal(numberToConverted));
 			break;
 			
@@ -193,8 +193,6 @@ public class NumberCoverterClient
 			System.out.println("After converting the number from Hexadecimal to Decimal is");
 			System.out.println(NumberConveter.convertHexadecimalToDecimal(numberToConverted));
 			break;
-			
-		
 			
 		 default :
 		 {
