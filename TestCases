@@ -1,0 +1,71 @@
+package Mobiuso;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.jupiter.api.Test;
+
+class NumberConverterClientTestCases {
+
+	@Test
+	void testCaseForConvertDecimalToBinary()
+	{
+		String output=NumberConveter.convertDecimalToBinary(10);
+		
+		assertEquals("1010",output);
+	}
+	
+	@Test
+	void testCaseForConvertDecimalToOctal()
+	{
+		String output=NumberConveter.convertDecimalToOctal(128);
+	
+		assertEquals("200",output);
+	}
+	
+	
+	@Test
+	void testCaseForConvertDecimalToHexadecimal()
+	{
+		String output=NumberConveter.convertDecimalToHexadecimal(128);
+	
+		assertEquals("80",output);
+	}
+	
+	
+	@Test
+	void testCaseForConvertBinaryToDecimal()
+	{
+		int output=NumberConveter.convertBinaryToDecimal("1101");
+	
+		assertEquals(13,output);
+	}
+	
+	@Test
+	void testCaseForConvertOctalToDecimal()
+	{
+		int output=NumberConveter.convertOctalToDecimal(22);
+	
+		assertEquals(18,output);
+	}
+	
+	
+	@Test
+	void testCaseFirstForConvertHexadecimalToDecimal()
+	{
+		int output=NumberConveter.convertHexadecimalToDecimal("121");
+	
+		assertEquals(289,output);
+	}
+	
+	
+	@Test
+	void testCaseSecondForConvertHexadecimalToDecimal()
+	{
+		int output=NumberConveter.convertHexadecimalToDecimal("1A7");
+	
+		assertEquals(423,output);
+	}
+	
+	
+
+}
